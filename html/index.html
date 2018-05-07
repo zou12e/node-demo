@@ -10,13 +10,26 @@
 
     <button>post</button>
 
+    <br>
+
+    <button>get</button>
+
 </body>
 <script src="./jquery.min.js" ></script>
 <script>
 
     $(function(){
-        $('button').click(function(){
+        $('button:eq(0)').click(function(){
             $.post('/post/data', {
+                name: 'jimmy',
+                age: 26
+            },function(ret){
+                console.log(ret);
+            },'json');
+        });
+
+         $('button:eq(1)').click(function(){
+            $.get('/get/data', {
                 name: 'jimmy',
                 age: 26
             },function(ret){
